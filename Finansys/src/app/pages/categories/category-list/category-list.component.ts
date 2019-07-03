@@ -10,6 +10,7 @@ import {MenuItem} from 'primeng/api';
 export class CategoryListComponent implements OnInit {
 
   private items: MenuItem[];
+  categories: Category[] = [];
   
   constructor() { }
   
@@ -17,7 +18,7 @@ export class CategoryListComponent implements OnInit {
     
     this.items = [
       {label: 'Home', icon: 'pi pi-home', routerLink:'/'},
-      {label:'Categorias', },
+      {label: 'Categorias', },
     ];
   }
 
