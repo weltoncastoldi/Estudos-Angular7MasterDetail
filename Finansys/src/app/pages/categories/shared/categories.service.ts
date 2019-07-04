@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError } from 'rxjs';
 import {map, catchError, flatMap} from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ export class CategoriesService {
       );
     }
 
-    update(category: Category): Observable<Category>{
+    update(category: Category): Observable<Category> {
       const url = `${this.apiPath}/${category.id}`;
       return this.http.put(url, category).pipe(
         catchError(this.handleError),
@@ -52,7 +52,7 @@ export class CategoriesService {
       );
     }
 
-    private jsonDataToCategories(jsonData: any[]): Category[]{
+    private jsonDataToCategories(jsonData: any[]): Category[] {
       const categories: Category[] = [];
       jsonData.forEach(element => categories.push(element as Category));
       return categories;
@@ -62,7 +62,8 @@ export class CategoriesService {
       return jsonData as Category;
     }
 
-    private handleError(error: any): Observable<any>{
+    private handleError(error: any): Observable<any> {
       console.log('Erro na requisição => ', error);
       return throwError(error);
     }
+  }
